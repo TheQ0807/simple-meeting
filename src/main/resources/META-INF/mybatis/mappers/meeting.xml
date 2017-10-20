@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sample.meeting.mappers.MeetingMapper">
+	
+	<select id="getAllMeeting" resultType="Meeting">
+		select
+			meeting_no				as no,
+			meeting_title			as title,
+			meeting_room			as room,
+			meeting_dates			as dates,
+			meeting_description		as description,
+			meeting_canceled		as canceled,
+			meeting_completed		as completed
+		from
+			tb_meeting
+		order by no desc
+	</select>
+	
+	<insert id="addMeeting" parameterType="Meeting">
+		insert into tb_meeting
+				(meeting_no, meeting_title, meeting_room, meeting_dates, meeting_description)
+		values(#{no},#{title},#{room},#{dates},#{description})
+	</insert>
+	
+	<select id="getEmployeeBy50" resultType="Employee">
+		select
+			employee_id,
+			first_name,
+			last_name,
+			email,
+			phone_number,
+			hire_date,
+			job_id,
+			salary,
+			department_id
+		from
+			employees
+		where
+			department_id = 50 
+	</select>
+	
+	<select id="getSEQ" resultType="int">
+		select
+			meeting_seq.nextval from dual
+	</select>
+	
+	
+</mapper>

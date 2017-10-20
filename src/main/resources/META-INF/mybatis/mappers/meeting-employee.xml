@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sample.meeting.mappers.MeetingEmployeeMapper">
+	
+	<insert id="addME" parameterType="MeetingEmployee">
+		insert into tb_meeting_employees
+			(meeting_no, employee_id)
+		values
+			(#{no}, #{employee.id})
+	</insert>
+	
+	<select id="getAllME" parameterType="int" resultType="MeetingEmployee">
+		select
+			meeting_no			as no,
+			meeting_attended	as attended,
+			employee_id			as employeeId,
+		from
+			tb_meeting_employees
+		where
+			no = #{value}
+	</select>
+	
+</mapper>

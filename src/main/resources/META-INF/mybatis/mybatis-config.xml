@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+	
+	<typeAliases>		
+		<typeAlias type="com.sample.meeting.vo.Meeting" alias="Meeting"/>
+		<typeAlias type="com.sample.meeting.vo.Employee" alias="Employee"/>
+		<typeAlias type="com.sample.meeting.vo.MeetingEmployee" alias="MeetingEmployee"/>
+	</typeAliases>
+	
+	<mappers>
+		<mapper resource="META-INF/mybatis/mappers/meeting.xml" />
+		<mapper resource="META-INF/mybatis/mappers/employee.xml" />
+		<mapper resource="META-INF/mybatis/mappers/meeting-employee.xml" />
+	</mappers>
+	
+</configuration>
